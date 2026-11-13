@@ -1,5 +1,7 @@
 # Sổ tay System Design
 
+**Xem trực tuyến:** https://tiennhm.io.vn/system-design/
+
 Trang web tự học System Design bằng tiếng Việt, xây dựng từ tài liệu tham khảo
 *System Design LinkedIn Posts 2024* của ByteByteGo (file PDF không được đưa vào repo).
 
@@ -32,6 +34,5 @@ src/
 Thêm bài học mới: thêm một phần tử vào `LESSONS` trong `src/data/lessons.ts`.
 
 ## Deploy GitHub Pages
-Workflow `.github/workflows/deploy.yml` build trên mọi push. Để deploy:
-1. Settings → Pages → Source: **GitHub Actions** (repo private cần gói GitHub Pro trở lên).
-2. Settings → Secrets and variables → Actions → Variables: thêm `PAGES_ENABLED` = `true`.
+Mỗi lần push lên `main`, workflow `.github/workflows/deploy.yml` tự build và deploy lên GitHub Pages.
+Đặt biến repo `PAGES_ENABLED` khác `true` để tạm ngừng deploy.
