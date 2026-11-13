@@ -1,14 +1,20 @@
 import type { WidgetId } from '../types';
+import { LatencyWidget } from './LatencyWidget';
+import { NinesWidget } from './NinesWidget';
+import { LoadBalancerWidget } from './LoadBalancerWidget';
+import { CacheWidget } from './CacheWidget';
+import { RetryWidget } from './RetryWidget';
 
-/** Công cụ tương tác gắn kèm bài học. Các widget được bổ sung ở commit sau. */
+const MAP: Record<WidgetId, () => JSX.Element> = {
+  latency: LatencyWidget,
+  nines: NinesWidget,
+  lb: LoadBalancerWidget,
+  cache: CacheWidget,
+  retry: RetryWidget,
+};
+
+/** Công cụ tương tác gắn kèm bài học. */
 export function Widget({ id }: { id: WidgetId }) {
-  return (
-    <section className="widget">
-      <div className="widget-h">
-        <h2>Công cụ tương tác</h2>
-        <span>{id}</span>
-      </div>
-      <p className="out">Đang xây dựng.</p>
-    </section>
-  );
+  const Comp = MAP[id];
+  return <Comp />;
 }
