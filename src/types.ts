@@ -1,4 +1,6 @@
-export type WidgetId = 'latency' | 'nines' | 'lb' | 'cache' | 'retry';
+export type WidgetId = 'latency' | 'nines' | 'lb' | 'cache' | 'retry' | 'hashring' | 'ratelimit';
+
+export type Level = 'co-ban' | 'trung-binh' | 'nang-cao';
 
 export interface Module {
   id: string;
@@ -24,6 +26,8 @@ export interface Lesson {
   pages: number[];
   /** Thời gian đọc ước tính (phút) */
   min: number;
+  /** Độ khó: cơ bản / trung bình / nâng cao */
+  level: Level;
   widget?: WidgetId;
   lede: string;
   /** Nội dung HTML do tác giả soạn (không phải input người dùng) */
