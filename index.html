@@ -1,0 +1,38 @@
+<title>Sổ tay System Design</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Tự học System Design bằng tiếng Việt: 18 bài học, công cụ tương tác và quiz, dựa trên ByteByteGo LinkedIn Posts 2024.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;600&display=swap&subset=vietnamese">
+<link rel="stylesheet" href="styles.css">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#home"><b>Sổ tay System Design</b><span>ByteByteGo 2024 · VI</span></a>
+    <nav class="topnav" aria-label="Điều hướng chính">
+      <a href="#home" data-nav="home">Lộ trình</a>
+      <a href="#on-tap" data-nav="on-tap">Ôn tập</a>
+      <a href="#muc-luc" data-nav="muc-luc">Mục lục sách</a>
+    </nav>
+    <div class="progress-mini" title="Tiến độ học">
+      <div class="meter"><i id="meter"></i></div><span id="meter-txt">0/18</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="side" aria-label="Danh sách bài học">
+    <details id="side-details" open>
+      <summary>Danh sách bài học</summary>
+      <div class="side-body" id="side"></div>
+    </details>
+  </aside>
+  <main id="view">
+    <p>Đang tải bài học…</p>
+  </main>
+</div>
+
+<script src="data/toc.js"></script>
+<script src="data/lessons.js"></script>
+<script src="js/widgets.js"></script>
+<script src="js/app.js"></script>
