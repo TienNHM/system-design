@@ -305,3 +305,40 @@ label.lbl { font-size: 13px; color: var(--muted); display: inline-flex; gap: 6px
 .prose ol.iv { counter-reset: none; }
 .prose ol.iv li { margin-bottom: 8px; }
 @media (max-width: 640px) { .cols-2, .cols-3 { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------------- Lesson layout v2 ---------------- */
+.lesson-grid { display: grid; grid-template-columns: minmax(0, 780px) 210px; gap: 36px; align-items: start; }
+.lesson { max-width: none; }
+.toc { position: sticky; top: calc(var(--header-h) + 20px + env(safe-area-inset-top, 0px)); font-size: 13px; border-left: 1px solid var(--line); padding-left: 14px; max-height: calc(100vh - var(--header-h) - 40px); overflow-y: auto; }
+.toc-h { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.toc button { all: unset; cursor: pointer; display: block; color: var(--muted); line-height: 1.4; padding: 3px 0; }
+.toc button:hover { color: var(--accent); }
+.toc button:focus-visible { outline: 2px solid var(--accent); }
+.prose h2 { scroll-margin-top: calc(var(--header-h) + 16px); }
+#muc-cong-cu, #muc-ghi-nho, #muc-quiz { scroll-margin-top: calc(var(--header-h) + 16px); }
+.chip.lv-co-ban { color: var(--good); border-color: var(--good); }
+.chip.lv-trung-binh { color: var(--accent); border-color: var(--accent); }
+.chip.lv-nang-cao { color: var(--signal); border-color: var(--signal); }
+.chip-done { background: var(--good-soft); color: var(--good); border-color: var(--good); }
+@media (max-width: 1180px) {
+  .lesson-grid { grid-template-columns: minmax(0, 1fr); }
+  .toc { display: none; }
+}
+
+.side-search { width: 100%; margin: 0 0 12px; font-family: var(--font-body) !important; }
+.side-hits { font-size: 12px; color: var(--muted); margin: -6px 0 10px 4px; }
+.home-map { margin-bottom: 30px; }
+.home-map .dg svg { min-width: 640px !important; }
+
+/* Widgets v2 */
+.ring-wrap { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 18px; align-items: center; }
+.ring-svg { width: 100%; max-width: 300px; height: auto; }
+.ring-side { min-width: 0; }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+input[type="range"] { accent-color: var(--accent); }
+.bucket { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 12px; }
+.tok { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: var(--surface-2); }
+.tok.full { background: var(--accent); border-color: var(--accent); }
+@media (max-width: 640px) { .ring-wrap { grid-template-columns: minmax(0, 1fr); justify-items: center; } }
+.narrow { max-width: 760px; }

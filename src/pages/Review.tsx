@@ -34,7 +34,7 @@ export function Review() {
   const finished = score.answered === questions.length;
 
   return (
-    <div className="lesson">
+    <div className="lesson narrow">
       <div className="eyebrow">Ôn tập</div>
       <h1 style={{ margin: '6px 0 10px' }}>Bài ôn tập ngẫu nhiên</h1>
       <p className="lede">
