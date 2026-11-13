@@ -217,8 +217,12 @@ const MARKERS = ['', '-warn', '-good', '-muted']
   )
   .join('');
 
+/** Lưu lại spec của mọi sơ đồ để script kiểm tra (scripts/content-stats.mjs) phát hiện node chồng/tràn. */
+export const DIAGRAM_SPECS: DiagramSpec[] = [];
+
 /** Sơ đồ kiến trúc: node + mũi tên + nhóm. Trả về <figure> chứa SVG. */
 export function diagram(spec: DiagramSpec): string {
+  DIAGRAM_SPECS.push(spec);
   const byId = new Map(spec.nodes.map(n => [n.id, n]));
   const groups = (spec.groups ?? [])
     .map(
