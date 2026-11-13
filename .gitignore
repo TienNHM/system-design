@@ -1,2 +1,5 @@
 # Source book (copyrighted, large) - keep local only
 *.pdf
+node_modules/
+dist/
+artifact/
