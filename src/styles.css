@@ -342,3 +342,13 @@ input[type="range"] { accent-color: var(--accent); }
 .tok.full { background: var(--accent); border-color: var(--accent); }
 @media (max-width: 640px) { .ring-wrap { grid-template-columns: minmax(0, 1fr); justify-items: center; } }
 .narrow { max-width: 760px; }
+
+/* Header trên màn hình hẹp: tên trang + tiến độ ở hàng 1, menu ở hàng 2 */
+@media (max-width: 640px) {
+  .topbar-inner { flex-wrap: wrap; gap: 4px 12px; padding-block: 8px; min-height: 0; }
+  .brand b { font-size: 17px; white-space: nowrap; }
+  .progress-mini { margin-left: auto; }
+  .topnav { order: 3; width: 100%; margin-left: -7px; flex-wrap: nowrap; overflow-x: auto; }
+  .topnav a { white-space: nowrap; }
+  .side, .toc { top: 0; }
+}

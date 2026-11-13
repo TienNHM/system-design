@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LESSONS, MODULES, SEARCH_TEXT, lessonsOf } from '../data';
 import { fold } from '../lib/text';
 import { Tick } from './Tick';
@@ -8,15 +8,32 @@ interface Props {
   done: Set<string>;
 }
 
+const DESKTOP = '(min-width: 901px)';
+
 export function Sidebar({ route, done }: Props) {
   const [q, setQ] = useState('');
+  // Desktop: luôn mở. Mobile: thu gọn, tự đóng lại khi chuyển bài.
+  const [isDesktop, setIsDesktop] = useState(() => window.matchMedia(DESKTOP).matches);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia(DESKTOP);
+    const on = () => setIsDesktop(mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  useEffect(() => setMobileOpen(false), [route]);
   const query = fold(q.trim());
   const match = (id: string) => !query || (SEARCH_TEXT.get(id) ?? '').includes(query);
   const hits = query ? LESSONS.filter(l => match(l.id)).length : null;
 
   return (
     <aside className="side" aria-label="Danh sách bài học">
-      <details open>
+      <details
+        open={isDesktop || mobileOpen}
+        onToggle={e => {
+          if (!isDesktop) setMobileOpen((e.currentTarget as HTMLDetailsElement).open);
+        }}
+      >
         <summary>Danh sách bài học ({LESSONS.length})</summary>
         <div className="side-body">
           <input
